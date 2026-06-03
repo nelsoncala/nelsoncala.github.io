@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nelson Cala-Moreno, PhD. Genética cuantitativa, bioestadística, genómica, GWAS, docencia universitaria y herramientas académicas para investigación veterinaria." />
+  <title>Nelson Cala-Moreno, PhD | Genética, Bioestadística y Ciencia Animal</title>
+
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --paper: #ffffff;
+      --ink: #132033;
+      --muted: #5f6f82;
+      --line: #d9e3ef;
+      --navy: #0f2d4a;
+      --navy2: #173d63;
+      --accent: #9a742e;
+      --soft: #eef4fa;
+      --soft2: #f8fafc;
+      --shadow: 0 20px 50px rgba(15, 45, 74, 0.12);
+      --max: 1180px;
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(23, 61, 99, 0.08), transparent 30%),
+        radial-gradient(circle at 95% 8%, rgba(154, 116, 46, 0.08), transparent 22%),
+        var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--navy2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(217, 227, 239, 0.85);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand { display: grid; gap: 2px; }
+    .brand strong { font-size: 1rem; letter-spacing: -0.02em; }
+    .brand span {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.92rem;
+    }
+
+    .navlinks a { color: var(--ink); opacity: 0.86; }
+    .navlinks a:hover { color: var(--navy2); opacity: 1; text-decoration: none; }
+
+    .hero { padding: 56px 0 26px; }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 36px;
+      background: linear-gradient(135deg, rgba(15, 45, 74, 0.98), rgba(23, 61, 99, 0.96));
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 84% 16%, rgba(255,255,255,0.16), transparent 20%),
+        linear-gradient(90deg, rgba(255,255,255,0.06), transparent 24%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.55fr 0.85fr;
+      gap: 30px;
+      padding: 48px 40px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.88);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.35rem, 5vw, 4.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+    }
+
+    .subtitle {
+      margin: 0 0 22px;
+      font-size: 1.14rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.93);
+    }
+
+    .lead {
+      margin: 0;
+      max-width: 780px;
+      color: rgba(255,255,255,0.90);
+      font-size: 1.02rem;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-weight: 650;
+      font-size: 0.94rem;
+      border: 1px solid transparent;
+      transition: 0.16s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .btn.primary { background: white; color: var(--navy); }
+    .btn.secondary {
+      background: rgba(255,255,255,0.10);
+      color: white;
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .profile-card {
+      align-self: start;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.09);
+      border-radius: 26px;
+      padding: 22px;
+      backdrop-filter: blur(8px);
+    }
+
+    .profile-card h2 {
+      margin: 0 0 12px;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .profile-list {
+      display: grid;
+      gap: 12px;
+      font-size: 0.94rem;
+      color: rgba(255,255,255,0.96);
+    }
+
+    .profile-list span {
+      display: block;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.66);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .profile-list a {
+      color: white;
+      text-decoration: underline;
+      text-decoration-color: rgba(255,255,255,0.25);
+      text-underline-offset: 4px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .metric {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 20px 18px;
+      box-shadow: 0 10px 35px rgba(15,45,74,0.08);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.9rem;
+      line-height: 1;
+      color: var(--navy);
+      letter-spacing: -0.05em;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    section { padding: 48px 0; }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title p {
+      max-width: 640px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .grid-2 { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 12px 38px rgba(15,45,74,0.08);
+    }
+
+    .card h3 { margin: 0 0 8px; font-size: 1.07rem; color: var(--ink); }
+    .card p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
+
+    .chip {
+      border: 1px solid #dce8f3;
+      background: var(--soft2);
+      color: var(--navy2);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.86rem;
+      font-weight: 550;
+    }
+
+    .timeline { display: grid; gap: 14px; }
+
+    .timeline-item {
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+    }
+
+    .timeline-item strong { display: block; color: var(--ink); }
+    .timeline-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 2px;
+    }
+
+    .pub {
+      display: grid;
+      gap: 8px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .pub:last-child { border-bottom: 0; padding-bottom: 0; }
+
+    .pub .year {
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .pub strong { color: var(--ink); line-height: 1.45; }
+    .pub span { color: var(--muted); font-size: 0.92rem; }
+
+    .tool-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 230px;
+    }
+
+    .tool-card .status {
+      width: fit-content;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: #eef8ef;
+      color: #23663a;
+      border: 1px solid #d4efd8;
+      margin-bottom: 14px;
+    }
+
+    .tool-card .status.pending {
+      background: #fff8e9;
+      color: #7a5a18;
+      border-color: #f0dfb4;
+    }
+
+    .tool-card .actions {
+      margin-top: auto;
+      padding-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .mini-link {
+      border: 1px solid var(--line);
+      background: var(--soft2);
+      color: var(--navy2);
+      padding: 9px 11px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 650;
+    }
+
+    .mini-link:hover { background: var(--soft); text-decoration: none; }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    footer {
+      padding: 38px 0 54px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero-inner, .grid-2, .contact-box { grid-template-columns: 1fr; }
+      .metrics, .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .navlinks { display: none; }
+    }
+
+    @media (max-width: 560px) {
+      .hero { padding-top: 28px; }
+      .hero-inner { padding: 34px 24px; }
+      .metrics, .grid-3 { grid-template-columns: 1fr; }
+      section { padding: 34px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <strong>Nelson Cala-Moreno, PhD</strong>
+        <span>Genética · Bioestadística · Ciencia Animal</span>
+      </div>
+      <nav class="navlinks" aria-label="Navegación principal">
+        <a href="#perfil">Perfil</a>
+        <a href="#investigacion">Investigación</a>
+        <a href="#publicaciones">Publicaciones</a>
+        <a href="#herramientas">Herramientas</a>
+        <a href="#docencia">Docencia</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-card">
+          <div class="hero-inner">
+            <div>
+              <div class="eyebrow">Academic profile & research tools</div>
+              <h1>Genética, bioestadística y herramientas académicas para la investigación veterinaria.</h1>
+              <p class="subtitle">Médico Veterinario Zootecnista · MSc · PhD · Universidad Nacional Autónoma de México</p>
+              <p class="lead">
+                Investigador y docente universitario con formación de maestría y doctorado orientada a genética
+                y bioestadística aplicada a las ciencias animales. Trabajo en genética cuantitativa, genómica,
+                modelos mixtos, GWAS, diseño experimental y desarrollo de herramientas académicas para docencia e investigación.
+              </p>
+              <div class="hero-actions">
+                <a class="btn primary" href="#herramientas">Ver herramientas académicas</a>
+                <a class="btn secondary" href="#publicaciones">Ver publicaciones</a>
+                <a class="btn secondary" href="#contacto">Contacto</a>
+              </div>
+            </div>
+
+            <aside class="profile-card" aria-label="Perfiles académicos">
+              <h2>Perfiles académicos</h2>
+              <div class="profile-list">
+                <div>
+                  <span>Google Scholar</span>
+                  <a href="https://scholar.google.com/citations?hl=en&user=KZ0R9xgAAAAJ" target="_blank" rel="noopener noreferrer">Perfil académico</a>
+                </div>
+                <div>
+                  <span>ORCID</span>
+                  <a href="https://orcid.org/0000-0002-9439-7007" target="_blank" rel="noopener noreferrer">0000-0002-9439-7007</a>
+                </div>
+                <div>
+                  <span>GitHub</span>
+                  <a href="https://github.com/" target="_blank" rel="noopener noreferrer">Repositorio académico</a>
+                </div>
+                <div>
+                  <span>Correo</span>
+                  <a href="mailto:nelson.cm@yahoo.com">nelson.cm@yahoo.com</a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric"><strong>57</strong><span>Citas en Google Scholar</span></div>
+          <div class="metric"><strong>4</strong><span>h-index</span></div>
+          <div class="metric"><strong>2</strong><span>i10-index</span></div>
+          <div class="metric"><strong>20+</strong><span>Trabajos de grado y tesis dirigidas</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="perfil">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Perfil científico</h2>
+          <p>Una trayectoria centrada en conectar fundamentos biológicos y genéticos con metodologías cuantitativas aplicadas a investigación veterinaria.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>Enfoque académico</h3>
+            <p>
+              Docencia e investigación en genética, biología molecular, genética cuantitativa, genómica,
+              bioestadística, diseño experimental y metodología de la investigación.
+            </p>
+            <div class="chips">
+              <span class="chip">Genética</span>
+              <span class="chip">Bioestadística</span>
+              <span class="chip">Genómica</span>
+              <span class="chip">Diseño experimental</span>
+              <span class="chip">GWAS</span>
+              <span class="chip">Modelos mixtos</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Formación académica</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <strong>Doctorado en Ciencias de la Producción y la Salud Animal</strong>
+                <span>UNAM · Línea: Genética Animal y Bioestadística · Becario CONACYT</span>
+              </div>
+              <div class="timeline-item">
+                <strong>Maestría en Ciencias de la Producción y la Salud Animal</strong>
+                <span>UNAM · Línea: Genética Animal y Bioestadística · Becario CONACYT</span>
+              </div>
+              <div class="timeline-item">
+                <strong>Médico Veterinario Zootecnista</strong>
+                <span>Universidad Cooperativa de Colombia</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="investigacion">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Investigación</h2>
+          <p>Proyectos orientados a genética animal, genómica aplicada, sistemas tropicales, salud animal y producción sostenible.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>Cabra criolla santandereana</h3>
+            <p>Estudios de asociación genómica, adaptación al estrés calórico, parasitosis gastrointestinales y variables hematológicas/fisiológicas.</p>
+          </article>
+          <article class="card">
+            <h3>Tenebrio molitor</h3>
+            <p>Estimación de parámetros genéticos, heredabilidad, crecimiento larvario y aplicaciones para programas de mejoramiento.</p>
+          </article>
+          <article class="card">
+            <h3>Herramientas cuantitativas</h3>
+            <p>Modelos mixtos, REML/BLUP, análisis multivariado, diseño experimental y aplicaciones educativas para ciencia animal.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publicaciones">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Publicaciones seleccionadas</h2>
+          <p>Producción científica indexada y trabajos seleccionados vinculados con genética, producción animal y análisis cuantitativo.</p>
+        </div>
+
+        <article class="card">
+          <div class="pub">
+            <div class="year">2026 · Animal</div>
+            <strong>Genetic parameters of larval weight and length in yellow mealworm under tropical conditions: heritability and implications for breeding programs.</strong>
+            <span><a href="https://doi.org/10.1016/j.animal.2026.101784" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.animal.2026.101784</a></span>
+          </div>
+
+          <div class="pub">
+            <div class="year">2025 · Spei Domus</div>
+            <strong>La cabra criolla santandereana: patrimonio genético y sostenibilidad productiva en el nororiente colombiano.</strong>
+            <span><a href="https://doi.org/10.16925/2382-4247.2025.01.11" target="_blank" rel="noopener noreferrer">DOI: 10.16925/2382-4247.2025.01.11</a></span>
+          </div>
+
+          <div class="pub">
+            <div class="year">2023 · Veterinaria México OA</div>
+            <strong>Genome-wide association study for heat stress resistance in Brown Swiss cattle in Yucatan, Mexico.</strong>
+            <span>Genómica aplicada y tolerancia al estrés calórico.</span>
+          </div>
+
+          <div class="pub">
+            <div class="year">2021 · Abanico Veterinario</div>
+            <strong>Genotype-by-environment interaction in White shrimp associated with White Spot Disease.</strong>
+            <span><a href="https://dx.doi.org/10.21929/abavet2021.13" target="_blank" rel="noopener noreferrer">DOI: 10.21929/abavet2021.13</a></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="herramientas">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Herramientas académicas</h2>
+          <p>Aplicaciones y recursos digitales para docencia, análisis estadístico y genética cuantitativa.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card tool-card">
+            <div class="status">Publicado / en configuración</div>
+            <h3>ANOVA & Heritability Calculator</h3>
+            <p>Herramienta educativa para análisis de varianza, esperanzas de cuadrados medios y estimación de heredabilidad.</p>
+            <div class="actions">
+              <a class="mini-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">Repositorio</a>
+              <a class="mini-link" href="#" target="_blank" rel="noopener noreferrer">Abrir herramienta</a>
+            </div>
+          </article>
+
+          <article class="card tool-card">
+            <div class="status pending">Próximamente</div>
+            <h3>Animal Model Tools</h3>
+            <p>Recursos para construcción de matrices de parentesco, organización de pedigrí y enseñanza del modelo animal.</p>
+            <div class="actions"><a class="mini-link" href="#">En desarrollo</a></div>
+          </article>
+
+          <article class="card tool-card">
+            <div class="status pending">Próximamente</div>
+            <h3>Genetic Simulator</h3>
+            <p>Simulador educativo para genética de poblaciones y genética cuantitativa, incluyendo selección, migración y componentes de varianza.</p>
+            <div class="actions"><a class="mini-link" href="#">En desarrollo</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="docencia">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Docencia y mentoría</h2>
+          <p>Experiencia en enseñanza universitaria, dirección de trabajos académicos y desarrollo de materiales educativos para investigación veterinaria.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>Áreas de docencia</h3>
+            <div class="chips">
+              <span class="chip">Genética general</span>
+              <span class="chip">Biología molecular</span>
+              <span class="chip">Genética cuantitativa</span>
+              <span class="chip">Bioestadística</span>
+              <span class="chip">Diseño experimental</span>
+              <span class="chip">Metodología de investigación</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Dirección académica</h3>
+            <p>
+              Dirección y acompañamiento de trabajos de grado y tesis de maestría en genética animal,
+              producción animal, revisiones sistemáticas, metaanálisis, epidemiología y análisis cuantitativo aplicado.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="wrap">
+        <div class="contact-box">
+          <article class="card">
+            <h2>Contacto</h2>
+            <p>Para colaboración académica, asesoría metodológica, herramientas docentes o proyectos de investigación.</p>
+            <div class="chips">
+              <a class="chip" href="mailto:nelson.cm@yahoo.com">nelson.cm@yahoo.com</a>
+              <a class="chip" href="mailto:nelson.cala@campusucc.edu.co">nelson.cala@campusucc.edu.co</a>
+              <a class="chip" href="https://orcid.org/0000-0002-9439-7007" target="_blank" rel="noopener noreferrer">ORCID</a>
+              <a class="chip" href="https://scholar.google.com/citations?hl=en&user=KZ0R9xgAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h2>Portafolio GitHub</h2>
+            <p>Repositorios de herramientas académicas, aplicaciones HTML, scripts y materiales educativos para genética, bioestadística y ciencia animal.</p>
+            <div class="chips">
+              <a class="chip" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="chip" href="#herramientas">Herramientas</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © 2026 Nelson Cala-Moreno. Academic website hosted with GitHub Pages. Last updated: June 2026.
+    </div>
+  </footer>
+</body>
+</html>
