@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nelson Cala-Moreno, PhD. Perfil académico, investigación, publicaciones, docencia y herramientas académicas en genética, bioestadística y ciencia animal." />
+  <title>Nelson Cala-Moreno, PhD | Academic Portfolio</title>
+
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --paper:#ffffff;
+      --ink:#132033;
+      --muted:#607086;
+      --line:#dbe5ef;
+      --navy:#0f2d4a;
+      --navy2:#173d63;
+      --gold:#9a742e;
+      --soft:#eef4fa;
+      --soft2:#f8fafc;
+      --green:#1f6b43;
+      --amber:#8a5f13;
+      --shadow:0 18px 48px rgba(15,45,74,.11);
+      --max:1200px;
+      --radius:26px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(23,61,99,.08), transparent 28%),
+        radial-gradient(circle at 95% 7%, rgba(154,116,46,.08), transparent 21%),
+        var(--bg);
+      line-height:1.62;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:var(--navy2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:30;
+      background:rgba(255,255,255,.90);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(219,229,239,.86);
+    }
+    .nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:13px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+    }
+    .brand{display:grid;gap:1px}
+    .brand strong{font-size:1rem;letter-spacing:-.02em}
+    .brand span{
+      font-size:.75rem;
+      color:var(--muted);
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .navlinks{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+      font-size:.90rem;
+      align-items:center;
+    }
+    .navlinks a{color:var(--ink);opacity:.85}
+    .navlinks a:hover{opacity:1;color:var(--navy2);text-decoration:none}
+
+    .hero{padding:54px 0 26px}
+    .hero-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:38px;
+      background:linear-gradient(135deg, rgba(15,45,74,.985), rgba(23,61,99,.97));
+      color:#fff;
+      box-shadow:var(--shadow);
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 86% 18%, rgba(255,255,255,.17), transparent 20%),
+        linear-gradient(90deg, rgba(255,255,255,.07), transparent 24%);
+      pointer-events:none;
+    }
+    .hero-inner{
+      position:relative;
+      display:grid;
+      grid-template-columns:1.55fr .9fr;
+      gap:30px;
+      padding:50px 42px;
+    }
+    .eyebrow{
+      display:inline-flex;
+      width:fit-content;
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.08);
+      color:rgba(255,255,255,.88);
+      font-size:.76rem;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+    h1{
+      margin:0 0 14px;
+      font-size:clamp(2.3rem,5vw,4.1rem);
+      line-height:1.02;
+      letter-spacing:-.055em;
+    }
+    .subtitle{
+      margin:0 0 22px;
+      font-size:1.12rem;
+      font-weight:650;
+      color:rgba(255,255,255,.93);
+    }
+    .lead{
+      margin:0;
+      max-width:820px;
+      color:rgba(255,255,255,.91);
+      font-size:1.01rem;
+    }
+    .hero-actions{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius:16px;
+      font-weight:700;
+      font-size:.94rem;
+      border:1px solid transparent;
+      transition:.16s ease;
+    }
+    .btn:hover{transform:translateY(-1px);text-decoration:none}
+    .btn.primary{background:#fff;color:var(--navy)}
+    .btn.secondary{background:rgba(255,255,255,.10);color:#fff;border-color:rgba(255,255,255,.18)}
+
+    .side-card{
+      align-self:start;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.09);
+      border-radius:26px;
+      padding:22px;
+      backdrop-filter:blur(8px);
+    }
+    .side-card h2{
+      margin:0 0 14px;
+      font-size:.90rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:rgba(255,255,255,.82);
+    }
+    .profile-list{display:grid;gap:12px;font-size:.94rem;color:rgba(255,255,255,.96)}
+    .profile-list span{
+      display:block;
+      font-size:.74rem;
+      color:rgba(255,255,255,.66);
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      margin-bottom:2px;
+    }
+    .profile-list a{
+      color:#fff;
+      text-decoration:underline;
+      text-decoration-color:rgba(255,255,255,.25);
+      text-underline-offset:4px;
+      word-break:break-word;
+    }
+
+    .metrics{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:16px;
+      margin-top:20px;
+    }
+    .metric{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:20px 18px;
+      box-shadow:0 10px 34px rgba(15,45,74,.08);
+    }
+    .metric strong{
+      display:block;
+      font-size:1.85rem;
+      line-height:1;
+      color:var(--navy);
+      letter-spacing:-.05em;
+    }
+    .metric span{
+      display:block;
+      margin-top:8px;
+      color:var(--muted);
+      font-size:.90rem;
+    }
+
+    section{padding:48px 0}
+    .section-title{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:18px;
+      margin-bottom:20px;
+    }
+    .section-title h2{
+      margin:0;
+      color:var(--navy);
+      font-size:1.52rem;
+      letter-spacing:-.025em;
+    }
+    .section-title p{
+      max-width:670px;
+      margin:0;
+      color:var(--muted);
+      font-size:.96rem;
+    }
+    .grid-2{display:grid;grid-template-columns:.95fr 1.05fr;gap:20px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 12px 38px rgba(15,45,74,.08);
+    }
+    .card h3{margin:0 0 8px;font-size:1.08rem;color:var(--ink)}
+    .card p{margin:0;color:var(--muted);font-size:.96rem}
+    .muted{color:var(--muted)}
+
+    .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+    .chip{
+      border:1px solid #dce8f3;
+      background:var(--soft2);
+      color:var(--navy2);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:.86rem;
+      font-weight:600;
+    }
+
+    .timeline{display:grid;gap:16px}
+    .timeline-item{border-left:3px solid var(--gold);padding-left:16px}
+    .timeline-item strong{display:block;color:var(--ink)}
+    .timeline-item span{display:block;color:var(--muted);font-size:.92rem;margin-top:2px}
+    .timeline-item ul{margin:10px 0 0 18px;padding:0;color:var(--muted)}
+    .timeline-item li{margin-bottom:5px}
+
+    .pub{display:grid;gap:8px;padding:18px 0;border-bottom:1px solid var(--line)}
+    .pub:first-child{padding-top:0}
+    .pub:last-child{border-bottom:0;padding-bottom:0}
+    .pub .year{
+      font-size:.78rem;
+      color:var(--gold);
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .pub strong{color:var(--ink);line-height:1.45}
+    .pub span{color:var(--muted);font-size:.92rem}
+
+    .badge{
+      display:inline-flex;
+      width:fit-content;
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:.78rem;
+      font-weight:800;
+      margin-bottom:12px;
+      border:1px solid transparent;
+    }
+    .badge.green{background:#eef8ef;color:var(--green);border-color:#d4efd8}
+    .badge.amber{background:#fff8e9;color:var(--amber);border-color:#f0dfb4}
+    .badge.blue{background:#eff6ff;color:var(--navy2);border-color:#d9e9ff}
+
+    .tool-card{display:flex;flex-direction:column;min-height:245px}
+    .tool-card .actions{margin-top:auto;padding-top:18px;display:flex;flex-wrap:wrap;gap:10px}
+    .mini-link{
+      border:1px solid var(--line);
+      background:var(--soft2);
+      color:var(--navy2);
+      padding:9px 11px;
+      border-radius:12px;
+      font-size:.88rem;
+      font-weight:700;
+    }
+    .mini-link:hover{background:var(--soft);text-decoration:none}
+
+    .thesis-list{
+      display:grid;
+      gap:10px;
+      margin-top:14px;
+    }
+    .thesis{
+      padding:13px 14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:var(--soft2);
+      color:var(--muted);
+      font-size:.93rem;
+    }
+    .thesis strong{color:var(--ink)}
+
+    .download-card{
+      display:grid;
+      gap:12px;
+      align-content:start;
+    }
+    .download-card a{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 15px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:var(--soft2);
+      font-weight:700;
+      color:var(--navy2);
+    }
+    .download-card a:hover{text-decoration:none;background:var(--soft)}
+
+    .contact-box{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:stretch}
+
+    footer{
+      padding:38px 0 54px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    @media (max-width:980px){
+      .hero-inner,.grid-2,.contact-box{grid-template-columns:1fr}
+      .metrics{grid-template-columns:repeat(2,1fr)}
+      .grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}
+      .navlinks{display:none}
+    }
+    @media (max-width:600px){
+      .hero{padding-top:28px}
+      .hero-inner{padding:34px 24px}
+      .metrics,.grid-3,.grid-4{grid-template-columns:1fr}
+      section{padding:34px 0}
+      .section-title{display:grid}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <strong>Nelson Cala-Moreno, PhD</strong>
+        <span>Genética · Bioestadística · Ciencia Animal</span>
+      </div>
+      <nav class="navlinks" aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#investigacion">Investigación</a>
+        <a href="#publicaciones">Publicaciones</a>
+        <a href="#tesis">Tesis</a>
+        <a href="#herramientas">Herramientas</a>
+        <a href="#docencia">Docencia</a>
+        <a href="#descargas">CV</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap">
+        <div class="hero-card">
+          <div class="hero-inner">
+            <div>
+              <div class="eyebrow">Academic Portfolio Website</div>
+              <h1>Genética, bioestadística y herramientas académicas para investigación veterinaria.</h1>
+              <p class="subtitle">Médico Veterinario Zootecnista · MSc · PhD · Universidad Nacional Autónoma de México</p>
+              <p class="lead">
+                Investigador y docente universitario con formación de maestría y doctorado en genética y bioestadística
+                aplicada a las ciencias animales. Trabajo en genética cuantitativa, genómica, modelos mixtos, GWAS,
+                diseño experimental y desarrollo de herramientas académicas para docencia e investigación.
+              </p>
+              <div class="hero-actions">
+                <a class="btn primary" href="#herramientas">Herramientas académicas</a>
+                <a class="btn secondary" href="#publicaciones">Publicaciones</a>
+                <a class="btn secondary" href="#descargas">Descargar CV</a>
+              </div>
+            </div>
+
+            <aside class="side-card">
+              <h2>Perfiles académicos</h2>
+              <div class="profile-list">
+                <div><span>Google Scholar</span><a href="https://scholar.google.com/citations?hl=en&user=KZ0R9xgAAAAJ" target="_blank" rel="noopener noreferrer">Perfil académico</a></div>
+                <div><span>ORCID</span><a href="https://orcid.org/0000-0002-9439-7007" target="_blank" rel="noopener noreferrer">0000-0002-9439-7007</a></div>
+                <div><span>GitHub</span><a href="https://github.com/" target="_blank" rel="noopener noreferrer">Repositorio académico</a></div>
+                <div><span>Correo principal</span><a href="mailto:nelson.cm@yahoo.com">nelson.cm@yahoo.com</a></div>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric"><strong>57</strong><span>Citas en Google Scholar</span></div>
+          <div class="metric"><strong>4</strong><span>h-index</span></div>
+          <div class="metric"><strong>2</strong><span>i10-index</span></div>
+          <div class="metric"><strong>20+</strong><span>Trabajos de grado y tesis dirigidas</span></div>
+          <div class="metric"><strong>3+</strong><span>Proyectos como investigador principal</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Sobre mí</h2>
+          <p>Perfil académico orientado a conectar fundamentos biológicos y genéticos con métodos cuantitativos para investigación veterinaria.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>Perfil profesional</h3>
+            <p>
+              Médico Veterinario Zootecnista y Doctor en Ciencias de la Producción y la Salud Animal por la Universidad
+              Nacional Autónoma de México (UNAM), con formación de maestría y doctorado orientada a genética y
+              bioestadística aplicada a las ciencias animales.
+            </p>
+            <p style="margin-top:12px">
+              Cuento con experiencia en docencia universitaria, investigación y dirección de trabajos académicos en áreas
+              relacionadas con genética, biología molecular, genética cuantitativa, genómica, bioestadística, diseño
+              experimental y metodología de la investigación.
+            </p>
+            <p style="margin-top:12px">
+              Mi actividad académica integra la enseñanza de fundamentos biológicos y genéticos con metodologías cuantitativas
+              aplicadas a la investigación veterinaria.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Formación académica</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <strong>Doctorado en Ciencias de la Producción y la Salud Animal</strong>
+                <span>Universidad Nacional Autónoma de México (UNAM), 2021</span>
+                <ul>
+                  <li>Línea de investigación: Genética Animal y Bioestadística.</li>
+                  <li>Becario CONACYT durante estudios doctorales.</li>
+                  <li>Título convalidado en Colombia por el Ministerio de Educación Nacional.</li>
+                </ul>
+              </div>
+              <div class="timeline-item">
+                <strong>Maestría en Ciencias de la Producción y la Salud Animal</strong>
+                <span>Universidad Nacional Autónoma de México (UNAM), 2014</span>
+                <ul>
+                  <li>Línea de investigación: Genética Animal y Bioestadística.</li>
+                  <li>Becario CONACYT durante estudios de maestría.</li>
+                  <li>Título convalidado en Colombia por el Ministerio de Educación Nacional.</li>
+                </ul>
+              </div>
+              <div class="timeline-item">
+                <strong>Médico Veterinario Zootecnista</strong>
+                <span>Universidad Cooperativa de Colombia, 2005</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid-4" style="margin-top:20px">
+          <article class="card"><h3>Genética</h3><p>Genética general, molecular, cuantitativa y aplicada a ciencias animales.</p></article>
+          <article class="card"><h3>Bioestadística</h3><p>Diseño experimental, análisis multivariado, modelos mixtos y datos biológicos complejos.</p></article>
+          <article class="card"><h3>Genómica</h3><p>Estudios GWAS, selección genómica e interpretación de información genómica aplicada.</p></article>
+          <article class="card"><h3>Docencia</h3><p>Materiales educativos, tutoría, dirección de tesis y herramientas académicas web.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Experiencia académica y profesional</h2>
+          <p>Trayectoria en docencia universitaria, investigación, consultoría metodológica y genética aplicada.</p>
+        </div>
+
+        <div class="card">
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>Profesor Investigador de Tiempo Completo · Universidad Cooperativa de Colombia</strong>
+              <span>Febrero 2022 – Junio 2026 · Bucaramanga, Colombia</span>
+              <ul>
+                <li>Docencia en pregrado y posgrado en genética, genética cuantitativa, bioestadística, diseño experimental, metodología de investigación y escritura académica.</li>
+                <li>Dirección de trabajos de grado y tesis de maestría en genética animal, producción animal, epidemiología y revisiones sistemáticas.</li>
+                <li>Formulación, gestión y ejecución de proyectos de investigación en genética, genómica, producción sostenible y salud animal.</li>
+                <li>Producción de artículos científicos, artículos de divulgación y productos derivados de investigación.</li>
+                <li>Diseño y actualización curricular para programas académicos de pregrado y posgrado.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">20+ tesis dirigidas</span>
+                <span class="chip">Proyectos financiados</span>
+                <span class="chip">Publicaciones indexadas</span>
+                <span class="chip">Currículo de posgrado</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <strong>Profesor Catedrático · Universidad Cooperativa de Colombia</strong>
+              <span>Agosto 2021 – Diciembre 2022 · Bucaramanga, Colombia</span>
+              <ul>
+                <li>Docencia en genética cuantitativa, mejoramiento genético animal, diseño experimental y escritura académica.</li>
+                <li>Planeación, desarrollo y evaluación de actividades de enseñanza-aprendizaje.</li>
+                <li>Diseño de actividades orientadas al pensamiento crítico, investigación y resolución de problemas.</li>
+                <li>Apoyo metodológico y estadístico para estudiantes de maestría.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <strong>Asistente de Profesor · UNAM / UAM Xochimilco</strong>
+              <span>2013 – 2019 · Ciudad de México, México</span>
+              <ul>
+                <li>Docencia y tutorías en mejoramiento genético animal, genética cuantitativa y estadística.</li>
+                <li>Apoyo a cursos de pregrado, maestría y doctorado.</li>
+                <li>Capacitación en análisis de datos con SPSS y R.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <strong>Consultor en Genética Cuantitativa, Bioestadística e Investigación Aplicada</strong>
+              <span>2018 – Actualidad</span>
+              <ul>
+                <li>Asesoría metodológica y estadística para proyectos de investigación en genética animal, producción animal y ciencias veterinarias.</li>
+                <li>Diseño experimental y análisis de datos mediante modelos mixtos, análisis multivariado y herramientas estadísticas avanzadas.</li>
+                <li>Acompañamiento en tesis de pregrado, maestría y doctorado.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <strong>Asesor de Mejora Genética · Biotecnología Genética S.A.</strong>
+              <span>Diciembre 2015 – Mayo 2017 · Colombia</span>
+              <ul>
+                <li>Evaluación genética de poblaciones bovinas registradas mediante herramientas estadísticas y genómicas.</li>
+                <li>Modelación determinística de estrategias de selección genómica en ganado Simmental colombiano.</li>
+                <li>Interpretación de información genealógica, productiva y genómica para programas de mejoramiento animal.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="investigacion">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Investigación</h2>
+          <p>Líneas y proyectos orientados a genética animal, genómica aplicada, sistemas tropicales, salud animal y producción sostenible.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <span class="badge blue">Genómica aplicada</span>
+            <h3>Cabra criolla santandereana</h3>
+            <p>Estudios de asociación genómica, adaptación al estrés calórico, parasitosis gastrointestinales y variables hematológicas/fisiológicas.</p>
+          </article>
+          <article class="card">
+            <span class="badge green">Genética cuantitativa</span>
+            <h3>Tenebrio molitor</h3>
+            <p>Estimación de parámetros genéticos, heredabilidad, crecimiento larvario y aplicaciones para programas de mejoramiento.</p>
+          </article>
+          <article class="card">
+            <span class="badge amber">En formulación</span>
+            <h3>Zophobas morio</h3>
+            <p>Variabilidad genética para características de interés productivo en insectos de interés zootécnico.</p>
+          </article>
+        </div>
+
+        <div class="card" style="margin-top:20px">
+          <h3>Proyectos destacados</h3>
+          <div class="thesis-list">
+            <div class="thesis"><strong>Estimación de parámetros genéticos en Tenebrio molitor:</strong> proyecto de mediana cuantía en colaboración con UAM Xochimilco.</div>
+            <div class="thesis"><strong>GWAS en cabra criolla santandereana:</strong> estrés calórico, parasitosis gastrointestinales y adaptación en condiciones tropicales.</div>
+            <div class="thesis"><strong>Perfil fisiológico, hematológico y bioquímico en cabras autóctonas:</strong> relación con parasitosis gastrointestinales.</div>
+            <div class="thesis"><strong>GWAS en raza Chino santandereano:</strong> tolerancia al estrés por calor y hemoparasitosis.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publicaciones">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Publicaciones seleccionadas</h2>
+          <p>Producción científica indexada y trabajos seleccionados vinculados con genética, producción animal y análisis cuantitativo.</p>
+        </div>
+
+        <article class="card">
+          <div class="pub">
+            <div class="year">2026 · Animal</div>
+            <strong>Genetic parameters of larval weight and length in yellow mealworm under tropical conditions: heritability and implications for breeding programs.</strong>
+            <span><a href="https://doi.org/10.1016/j.animal.2026.101784" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.animal.2026.101784</a></span>
+          </div>
+          <div class="pub">
+            <div class="year">2025 · Spei Domus</div>
+            <strong>La cabra criolla santandereana: patrimonio genético y sostenibilidad productiva en el nororiente colombiano.</strong>
+            <span><a href="https://doi.org/10.16925/2382-4247.2025.01.11" target="_blank" rel="noopener noreferrer">DOI: 10.16925/2382-4247.2025.01.11</a></span>
+          </div>
+          <div class="pub">
+            <div class="year">2025 · Salud, Ciencia y Tecnología</div>
+            <strong>Palliative care nursing interventions to improve quality of life in oncological patients.</strong>
+            <span>Publicación interdisciplinaria.</span>
+          </div>
+          <div class="pub">
+            <div class="year">2024 · Spei Domus</div>
+            <strong>Cría y comercialización de insectos comestibles como fuente alternativa de proteína a nivel global.</strong>
+            <span><a href="https://doi.org/10.16925/2382-4247.2024.01.02" target="_blank" rel="noopener noreferrer">DOI: 10.16925/2382-4247.2024.01.02</a></span>
+          </div>
+          <div class="pub">
+            <div class="year">2023 · Veterinaria México OA</div>
+            <strong>Genome-wide association study for heat stress resistance in Brown Swiss cattle in Yucatan, Mexico.</strong>
+            <span>Genómica aplicada y tolerancia al estrés calórico.</span>
+          </div>
+          <div class="pub">
+            <div class="year">2021 · Abanico Veterinario</div>
+            <strong>Genotype-by-environment interaction in White shrimp associated with White Spot Disease.</strong>
+            <span><a href="https://dx.doi.org/10.21929/abavet2021.13" target="_blank" rel="noopener noreferrer">DOI: 10.21929/abavet2021.13</a></span>
+          </div>
+          <div class="pub">
+            <div class="year">2019 · Elsevier Reference Module</div>
+            <strong>Animals That Produce Dairy Foods: Bos indicus Breeds and Bos indicus × Bos taurus Crosses.</strong>
+            <span><a href="https://doi.org/10.1016/B978-0-08-100596-5.00619-3" target="_blank" rel="noopener noreferrer">DOI: 10.1016/B978-0-08-100596-5.00619-3</a></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="tesis">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Dirección de tesis y trabajos de grado</h2>
+          <p>Dirección y acompañamiento de trabajos de grado y tesis de maestría en genética, producción animal, revisiones sistemáticas, epidemiología y análisis cuantitativo.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>Tesis de maestría y trabajos destacados</h3>
+            <div class="thesis-list">
+              <div class="thesis"><strong>Clostridium butyricum</strong> como probiótico para control de Salmonella spp. en aves ponedoras.</div>
+              <div class="thesis"><strong>Parámetros genéticos</strong> para peso y longitud larvaria en Tenebrio molitor.</div>
+              <div class="thesis"><strong>Factores biológicos, ambientales y genéticos</strong> asociados con tasa de preñez en transferencia de embriones in vitro en bovinos.</div>
+              <div class="thesis"><strong>Asociación entre parasitosis gastrointestinales</strong> y parámetros hematológicos en cabra criolla santandereana.</div>
+              <div class="thesis"><strong>Modelamiento del estado sanitario</strong> en cabra criolla santandereana.</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Áreas recurrentes de dirección</h3>
+            <div class="chips">
+              <span class="chip">Genética animal</span>
+              <span class="chip">Bioestadística</span>
+              <span class="chip">Revisiones sistemáticas</span>
+              <span class="chip">Metaanálisis</span>
+              <span class="chip">Cabra criolla</span>
+              <span class="chip">Tenebrio molitor</span>
+              <span class="chip">Epidemiología</span>
+              <span class="chip">Producción animal</span>
+            </div>
+            <p style="margin-top:16px">
+              El listado completo de trabajos dirigidos se encuentra disponible en el CV académico extendido.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="herramientas">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Herramientas académicas</h2>
+          <p>Aplicaciones, scripts y recursos digitales para docencia, análisis estadístico, genética cuantitativa y ciencia animal.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card tool-card">
+            <span class="badge green">Publicado / en configuración</span>
+            <h3>ANOVA & Heritability Calculator</h3>
+            <p>Herramienta educativa para análisis de varianza, esperanzas de cuadrados medios y estimación de heredabilidad.</p>
+            <div class="actions">
+              <a class="mini-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">Repositorio</a>
+              <a class="mini-link" href="#" target="_blank" rel="noopener noreferrer">Abrir herramienta</a>
+            </div>
+          </article>
+
+          <article class="card tool-card">
+            <span class="badge amber">Próximamente</span>
+            <h3>Animal Model Tools</h3>
+            <p>Recursos para construcción de matrices de parentesco, organización de pedigrí y enseñanza del modelo animal.</p>
+            <div class="actions"><a class="mini-link" href="#">En desarrollo</a></div>
+          </article>
+
+          <article class="card tool-card">
+            <span class="badge amber">Próximamente</span>
+            <h3>Genetic Simulator</h3>
+            <p>Simulador educativo para genética de poblaciones y genética cuantitativa, incluyendo selección, migración y componentes de varianza.</p>
+            <div class="actions"><a class="mini-link" href="#">En desarrollo</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="docencia">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Docencia</h2>
+          <p>Áreas de enseñanza para pregrado, posgrado y formación metodológica en ciencias veterinarias y animales.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>Ciencias genéticas y moleculares</h3>
+            <div class="chips">
+              <span class="chip">Genética general</span>
+              <span class="chip">Biología molecular</span>
+              <span class="chip">Genómica</span>
+              <span class="chip">Genética cuantitativa</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Métodos cuantitativos</h3>
+            <div class="chips">
+              <span class="chip">Bioestadística</span>
+              <span class="chip">Diseño experimental</span>
+              <span class="chip">Modelos mixtos</span>
+              <span class="chip">Análisis multivariado</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Investigación y escritura académica</h3>
+            <div class="chips">
+              <span class="chip">Metodología</span>
+              <span class="chip">Revisiones sistemáticas</span>
+              <span class="chip">Metaanálisis</span>
+              <span class="chip">Redacción científica</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="descargas">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Descargas</h2>
+          <p>Documentos académicos para convocatorias, colaboraciones y procesos institucionales.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card download-card">
+            <h3>CV académico extendido</h3>
+            <p>Versión completa con formación, publicaciones, proyectos, tesis dirigidas y experiencia.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer"><span>Descargar PDF</span><span>→</span></a>
+          </article>
+          <article class="card download-card">
+            <h3>CV ejecutivo</h3>
+            <p>Versión breve para primer contacto académico o institucional.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer"><span>Próximamente</span><span>→</span></a>
+          </article>
+          <article class="card download-card">
+            <h3>Portafolio de herramientas</h3>
+            <p>Acceso al catálogo de herramientas académicas y repositorios.</p>
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer"><span>Ver GitHub</span><span>→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="wrap">
+        <div class="contact-box">
+          <article class="card">
+            <h2>Contacto</h2>
+            <p>Para colaboración académica, asesoría metodológica, herramientas docentes o proyectos de investigación.</p>
+            <div class="chips">
+              <a class="chip" href="mailto:nelson.cm@yahoo.com">nelson.cm@yahoo.com</a>
+              <a class="chip" href="mailto:nelson.cala@campusucc.edu.co">nelson.cala@campusucc.edu.co</a>
+              <a class="chip" href="https://orcid.org/0000-0002-9439-7007" target="_blank" rel="noopener noreferrer">ORCID</a>
+              <a class="chip" href="https://scholar.google.com/citations?hl=en&user=KZ0R9xgAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h2>GitHub y herramientas</h2>
+            <p>Repositorios de aplicaciones HTML, scripts y materiales educativos para genética, bioestadística y ciencia animal.</p>
+            <div class="chips">
+              <a class="chip" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="chip" href="#herramientas">Herramientas académicas</a>
+              <a class="chip" href="#publicaciones">Publicaciones</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © 2026 Nelson Cala-Moreno. Academic portfolio website hosted with GitHub Pages. Last updated: June 2026.
+    </div>
+  </footer>
+</body>
+</html>
